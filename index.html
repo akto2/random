@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+body {
+  margin: 0px;
+  padding: 0px
+}
+
+#content {
+  width: 100%;
+  height: 100%;
+}
+
+#box {
+ font-style: bold;
+  border: 3px solid #FFE400;
+  width: 137px;
+  height: 42px;
+  font-size: 27px;
+  padding-bottom: 1px;
+  text-align: center;
+  margin-top: 20px;
+   text-align: center;
+   padding-top:15px; 
+}
+
+#cont {
+  position: relative;
+  width: 138px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+#text {
+  position: absolute;
+  border: none;
+  top: 13px;
+  left: 23px;
+  width: 35px;
+  height: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#btn {
+  width: 50px;
+  height: 26px;
+  margin-left: 60px;
+  margin-top: 10px;
+  background: white;
+  border: none;
+  font-style: bold;
+  font-size:20px;
+   text-align: center;
+}
+
+#img {
+  width: 110px;
+  height: 120px;
+  margin: auto;
+  position: absolute;
+  top: 65px;
+  left: 6px;
+}
+
+embed {
+  display: none
+}
+</style>
+</head>
+<body>
+  <div id="content">
+    <div id="cont">
+      <input id="text" type="text" value="5"></input> <input name="btn" id="btn"
+        type="button" onclick="Click()" value="뽑기"></input>
+      <div id="box"></div>
+      <div id="img" name="img">
+        <img src="img/2.jpg" id="img">
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  function Click() {
+
+    var box = document.getElementById("box")
+    var text = document.getElementById("text");
+    var btn = document.getElementById("btn");
+    var arr = [ "허태량 님", "한태희 님", '김승범 님', "송재우 님", "황지선 님", "이혜주 님",
+        "좌행복 님", "강성진 님", "한창수 님", "정두리 님", "이현주 님", "전영범 님", "서동일 님",
+        "김종현 님", "이유라 님", "박헌웅 님", "김성호 님", "유형덕 님", "박용범 님", "노성화 님",
+        "이승진 님", "오송이 님", "이강진 님", "차규원 님", "최일환 님", "유승범 님", "구상현 님",
+        "김세미 님", "노의현 님" ];
+    text = parseInt(text.value);
+
+    if (text) {
+
+      setTimeout(function() {
+        box.innerHTML = text;
+          
+
+        
+      }, 0)
+      var a = setInterval(function() {
+        box.innerHTML = text - 1;
+        text--;
+
+             if (text == 0) {
+                    clearInterval(a);
+                  }
+
+      }, 1000);
+
+    } else {
+      alert("숫자를 입력해 주세요!!")
+    }
+
+    //box.innerHTML= btn;
+    var math = 0;
+    setTimeout(function() {
+
+      box.innerHTML = arr[Math.floor(Math.random() * arr.length)];
+
+    }, (text + 1) * 1000)
+
+  }
+</script>
+</html>
